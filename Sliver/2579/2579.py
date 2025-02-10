@@ -1,15 +1,9 @@
 import sys
 input = sys.stdin.readline
 
-stairs = []
-score = []
 n = int(input())
-
-for i in range(n):
-    stairs.append(0)
-
-for j in range(n):
-    score.append(int(input()))
+stairs = [0]*n
+score = [int(input()) for _ in range(n)]
 
 
 def minNext(k):
@@ -42,8 +36,5 @@ elif n == 3:
     print(sum(score)-min(score))
 
 else:
-    passedScore = []
-    passedScore.append(minNext(0))
-    passedScore.append(minNext(1))
-    passedScore.append(minNext(2))
+    passedScore = [minNext(0), minNext(1), minNext(2)]
     print(sum(score)-min(passedScore))
