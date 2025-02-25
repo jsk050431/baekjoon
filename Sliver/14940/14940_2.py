@@ -10,10 +10,10 @@ for i in range(lenY):
 
 for _y in range(lenY):
     for _x in range(lenX):
-        if arr[_y][_x] == 2:
-            start_x, start_y = (_x, _y)
         if arr[_y][_x] == 0:
             distanceArr [_y][_x] = 0
+        elif arr[_y][_x] == 2:
+            start_x, start_y = (_x, _y)
             
 dq = deque([(start_x, start_y)])
 distance = -1
@@ -32,7 +32,7 @@ while dq:
         for j in nextloc:
             next_x = _x + j[0]
             next_y = _y + j[1]
-            if 0<=next_x and next_x<=lenX-1 and 0<=next_y and next_y<=lenY-1 and distanceArr[next_y][next_x]==-1:
+            if 0<=next_x<=lenX-1 and 0<=next_y<=lenY-1 and distanceArr[next_y][next_x]==-1:
                 dq.append((next_x, next_y))
 
 for i in distanceArr:
